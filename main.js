@@ -8,6 +8,8 @@ function sum(x,y){
   return x+y
 }
 
+ 
+
 2) 
 function consoleReturn(x,y){
   console.log(x)
@@ -35,16 +37,43 @@ var object2={
 }
 */
 
-//1) WRITE YOUR CODE UNDER THIS LINE         
+//1) WRITE YOUR CODE UNDER THIS LINE
 
-//2) WRITE YOUR CODE UNDER THIS LINE         
+sum ( (x,y) => {
 
-//3) WRITE YOUR CODE UNDER THIS LINE         
+  return x + y;
 
-//4) WRITE YOUR CODE UNDER THIS LINE         
+})
+
+//2) WRITE YOUR CODE UNDER THIS LINE 
+
+consoleReturn ( (x, y) => {
+  console.log(x);
+  return y;
+})
+
+//3) WRITE YOUR CODE UNDER THIS LINE
+
+let name = "Alex";
+let age = 25;
+let result = "My name is: " + name + "and my age is: " + age;
+
+//4) WRITE YOUR CODE UNDER THIS LINE
+
+let food="Fried Chicken";
+let color="Blue";
+let object={
+  food,
+  color,
+}
 
 //5) WRITE YOUR CODE UNDER THIS LINE         
 
+let object2={
+  multi (a,b){
+    return a * b
+  }
+}
 
 
 
@@ -74,16 +103,28 @@ Output =>
 
 // WRITE YOUR CODE UNDER THIS LINE
 
+class Computer {
+  constructor(OS, RAM, CPU) {
+    this.OS = OS,
+    this.RAM = RAM,
+    this.CPU = CPU 
+  }
+  doubleRAM (){
+    this.RAM *= 2;
+    return this.RAM;
+  }
+}
 
-
-
-
+let computer1 = new Computer ('Windows', 8, 'I7');
+let computer2 = new Computer ('linux', 4, 'I5');
+let computer3 = new Computer ('mac', 2, 'I3');
 
 
 /* Q3:
 You have this two react components
 please fix the errors inside them
 */
+
 
 // App Component
 import Tasks from './components/Tasks';
@@ -93,12 +134,12 @@ export default class App extends Component {
     title: 'ELIZABETH GREENE',
     todos: ['eat', 'eat eat', 'eact again']
   };
-  changeTitle() {
-    state.title = 'AGGREGOR ZOLDYCK'
+  changeTitle() => {
+    this.setState('title', 'AGGREGOR ZOLDYCK');
   }
   render() {
     return (
-      <h1>App Component => state.title</h1>
+      <h1>App Component => {this.state.title}</h1>
       <button onClick={this.changeTitle}>Change Title</button>
       <Tasks tasks={this.todos} changeTitleFromChild={this.changeTitle} />
     );
@@ -112,16 +153,16 @@ class Tasks extends Component {
   state = {
     day: "Sat"
   };
-  changeDay() {
-    day = 'Sun'
+  changeDay() => {
+    this.setState('day', 'Sun');
   }
 
   render() {
     return (
       <div>
-        <h1>Tasks Component => state.day</h1>
+        <h1>Tasks Component => {state.day}</h1>
         <button onClick={this.changeDay}>Change Tasks State</button>
-        <button onClick={changeTitle}>Change App State</button>
+        <button onClick={this.props.changeTitleFromChild}>Change App State</button>
       </div>
     );
   }
